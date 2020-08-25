@@ -102,13 +102,14 @@ exports.journeyUser = async (req, res) => {
 
 exports.createJourney = async (req, res) => {
   try {
-    // const { journeyImage } = req.files;
-    // const imageJourneyName = journeyImage.name;
-    // await journeyImage.mv(`./uploads/${imageJourneyName}`);
+    journeyIm;
+    const { journeyImg } = req.files;
+    const imageJourneyName = journeyImg.name;
+    await journeyImg.mv(`./uploads/${imageJourneyName}`);
 
     const addJourney = await Journey.create({
       ...req.body,
-      // jnImg: imageJourneyName,
+      jnImg: imageJourneyName,
     });
     res.status(200).send({
       message: "Journey has been Created",

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import Moment from "react-moment";
 
+import DescTour from "./DescTour";
 import ImageTour from "./ImageTour";
 import "./DetailTour.css";
 
@@ -47,6 +48,7 @@ const DetailTour = () => {
             </p>
           </div>
           <ImageTour detailTrip={detailTrip} />
+          <DescTour detailTrip={detailTrip} />
         </>
       )}
     </div>

@@ -1,0 +1,24 @@
+.form-journey {
+  width: 80%;
+  padding-top: 60px;
+  margin: 0 auto;
+}
+.form-label {
+  font-size: 24px;
+  font-weight: bold;
+}
+.editor {
+  margin-top: 40px !important;
+}
+.ck-content {
+  height: 200px !important;
+}
+.post {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.post button {
+  width: 100px;
+  grid-column-end: none;
+}

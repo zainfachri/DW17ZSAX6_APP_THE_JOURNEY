@@ -47,7 +47,7 @@ const DropDown = ({ showDropDown, logOut }) => {
                       <span>Profile</span>
                     </div>
                   </Link>
-                  <Link to="/payment-pending">
+                  <Link to="/new-journey">
                     <div className="drop-list" onClick={() => showDropDown()}>
                       <i
                         class="fa fa-paper-plane-o"

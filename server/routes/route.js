@@ -18,8 +18,6 @@ const {
   userBookmark,
   deleteBookmark,
   createBookmark,
-  // createTransaction,
-  // updateTransaction,
 } = require("../controller/bookmark");
 
 const {
@@ -31,15 +29,10 @@ const {
 const { register, login } = require("../controller/auth");
 const { authenticated } = require("../middleware/authControl");
 
-// router.get("/country", showCountry);
-// router.get("/country/:id", showCountryDetail);
-// router.post("/country", createCountry);
-// router.patch("/country/:id", updateCountry);
-
 router.get("/journey", showJourney);
 router.get("/journey/:id", showJourneyDetail);
 router.get("/journey/user/:jnUserId", journeyUser);
-router.post("/journey", createJourney);
+router.post("/journey", fileUpload(), createJourney);
 router.patch("/journey/:id", updateJourney);
 router.delete("/journey/:id", deleteJourney);
 

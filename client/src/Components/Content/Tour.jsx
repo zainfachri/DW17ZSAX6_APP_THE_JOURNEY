@@ -3,7 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useQuery } from "react-query";
 import Moment from "react-moment";
-
+import "./Content.css";
 const Tour = ({ setModalLogin }) => {
   let history = useHistory();
   const user = localStorage.getItem("userId");
