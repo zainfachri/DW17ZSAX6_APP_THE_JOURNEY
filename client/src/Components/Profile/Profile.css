@@ -1,0 +1,49 @@
+.profileBg {
+  padding-top: 50px !important;
+  width: 100%;
+}
+.profile {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px 0;
+  margin: 0 auto;
+}
+.custom-file {
+  margin-top: 10px;
+}
+.profile-img {
+  grid-column: 2 / 3;
+  margin: 0 auto;
+}
+.profile-img img {
+  border-radius: 50%;
+  border: solid 2px #2e86de;
+  width: 300px;
+  height: 300px;
+}
+.person-info {
+  padding: 25px;
+  padding-left: 50px;
+  grid-column: 1 / 3;
+}
+.personDesc {
+  overflow: auto;
+  margin-top: 20px;
+}
+.personIcon,
+.personIdentity {
+  float: left;
+  line-height: 9px;
+}
+.personIcon {
+  font-size: 34px;
+  width: 60px;
+  color: #8a8c90;
+  text-align: center;
+}
+.profilInfo {
+  padding-bottom: 10px;
+}
+.profName {
+  font-weight: 800;
+}

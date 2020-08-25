@@ -1,0 +1,71 @@
+.payment {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #fff;
+}
+.paybtn button {
+  margin-top: 30px;
+  color: #fff;
+  width: 200px;
+}
+.inside-pay {
+  margin: 0 auto;
+  width: 100%;
+}
+.book-detail {
+  float: left;
+}
+.pay-name th {
+  font-size: 20px;
+}
+.book-img {
+  float: right;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.book-preview {
+  content: "Select some files";
+  width: 100px;
+  margin-top: 10px;
+}
+.pay-price td {
+  color: #959595;
+}
+.waiting-payment {
+  padding: 5px 10px;
+  color: #ec7a7a;
+  background-color: #ec7a7a26;
+}
+.waiting-approve {
+  padding: 5px 10px;
+  color: #ff9800;
+  background-color: #ff980036;
+}
+.approve {
+  padding: 5px 10px;
+  color: #32b927;
+  background-color: #00ffaa36;
+}
+.cancel {
+  padding: 5px 10px;
+  color: #ff0000;
+  background-color: #ff1e0036;
+}
+.payconfirmBg {
+  width: 100%;
+  height: 110vh;
+  padding-top: 35vh;
+  top: 0;
+  left: 0;
+  text-align: center;
+  position: fixed;
+  backdrop-filter: brightness(50%);
+}
+.payconfirm {
+  width: 400px;
+  border-radius: 5px;
+  margin: 0 auto;
+  font-weight: 500;
+  box-shadow: -1px 4px 3px rgba(0, 0, 0, 0.45) !important;
+}
