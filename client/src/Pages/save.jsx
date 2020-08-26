@@ -1,38 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
+import ReactHtmlParser from "react-html-parser";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-import Loading from "../Components/Loading/Loading";
 import "./NewJourney.css";
 
 const NewJourney = () => {
+  //   const [value, setValue] = useState("");
   const user = localStorage.getItem("userId");
+  const [error, setError] = useState("");
   const [previewSrc, setPreviewSrc] = useState(null);
-  const [formAdd, setFormAddTrip] = useState({
+  const [formAdd, setAddJourney] = useState({
     title: "",
     description: "",
     journeyImg: "",
     jnUserId: user,
   });
-  const [error, setError] = useState("");
-  const { title, description, journeyImg, jnUserId } = formAdd;
 
   const handleOnChange = (event, editor) => {
     const data = editor.getData();
-    setFormAddTrip({
-      ...formAdd,
+    setAddJourney({
       description: data,
     });
   };
+  // console.log(formAdd.description);
+  // console.log(formAdd.title);
+  // console.log(formAdd.journeyImg);
+  // console.log(formAdd.title);
 
   const handleChange = (event) => {
     const updateForm = { ...formAdd };
     updateForm[event.target.name] =
       event.target.type === "file" ? event.target.files[0] : event.target.value;
-    setFormAddTrip(updateForm);
+    setAddJourney(updateForm);
   };
+
   const onChangeFileImage = (event) => {
     let file = event.target.files[0];
     let reader = new FileReader();
@@ -43,14 +47,14 @@ const NewJourney = () => {
     reader.readAsDataURL(file);
   };
 
-  const AddTour = async () => {
+  const saveJourney = async (event) => {
+    event.preventDefault();
     let fd = new FormData();
 
-    fd.append("title", title);
-    fd.append("description", description);
-    fd.append("journeyImg", journeyImg);
-    fd.append("jnUserId", jnUserId);
-
+    fd.append("title", formAdd.title);
+    fd.append("description", formAdd.description);
+    fd.append("journeyImg", formAdd.journeyImg);
+    fd.append("jnUserId", formAdd.jnUserId);
     try {
       const res = await axios.post("http://localhost:5001/api/v1/journey", fd);
       window.location.reload();
@@ -60,7 +64,6 @@ const NewJourney = () => {
       console.log(err);
     }
   };
-
   return (
     <div className="main">
       <h1>New Journey</h1>
@@ -85,28 +88,7 @@ const NewJourney = () => {
               onChange={(event) => handleChange(event)}
             />
           </div>
-          <div class="input-group mb-3">
-            <div class="custom-file">
-              <input
-                type="file"
-                class="custom-file-input"
-                id="inputGroupFile01"
-                name="journeyImg"
-                onChange={(event) => {
-                  handleChange(event);
-                  onChangeFileImage(event);
-                }}
-              />
-              <label
-                class="custom-file-label"
-                for="inputGroupFile01"
-                style={{ fontSize: 15 }}
-              >
-                Choose Image Journey
-              </label>
-            </div>
-          </div>
-          {/* <div className="input-group mb-3">
+          <div className="input-group mb-3">
             <div className="custom-file">
               <input
                 type="file"
@@ -117,28 +99,37 @@ const NewJourney = () => {
                 }}
               />
             </div>
-          </div> */}
+          </div>
           <div style={{ marginTop: "10px" }}>
             <img src={previewSrc} className="preview-film" alt="" width="400" />
           </div>
           <div className="editor">
-            <CKEditor
+            {/* <CKEditor
               editor={ClassicEditor}
-              value={formAdd.description}
-              onInit={(editor) => {
-                // You can store the "editor" and use when it is needed.
-                //   console.log("Editor is ready to use!", editor);
-              }}
               onChange={handleOnChange}
+              // config={{ ckfinder: { uploadUrl: "/uploads" } }}
             />
+            {ReactHtmlParser(formAdd.description)} */}
+            <textarea
+              type="text"
+              className="form-control desc-form"
+              value={formAdd.description}
+              name="description"
+              onChange={(event) => handleChange(event)}
+            ></textarea>
           </div>
-          <div className="post">
-            <button className="btn btn-primary" type="submit" onClick={AddTour}>
-              Post
-            </button>
-          </div>
+          {/* <div className="post"> */}
+          <button
+            className="btn btn-primary"
+            type="submit"
+            onClick={saveJourney}
+          >
+            Post
+          </button>
+          {/* </div> */}
         </form>
       </div>
+      {/* )} */}
     </div>
   );
 };

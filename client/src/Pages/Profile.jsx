@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import Moment from "react-moment";
 import { useHistory } from "react-router-dom";
+import ReactHtmlParser from "react-html-parser";
 
 import ProfileDesc from "../Components/Profile/ProfileDesc";
 import "./NotFound.css";
@@ -48,9 +49,6 @@ const Profile = () => {
                       src={`http://localhost:5001/uploads/${story.jnImg}`}
                       height="241px"
                     />
-                    <p>
-                      <i class="fa fa-bookmark-o" aria-hidden="true"></i>
-                    </p>
                   </div>
                   <div className="info-journey">
                     <div className="info-head">
@@ -60,7 +58,7 @@ const Profile = () => {
                           history.push(`/detail/${story.id}`);
                         }}
                       >
-                        {story.title}
+                        {story.title.substring(0, 50)}...
                       </h5>
                       <Moment
                         format="D MMMM YYYY"
@@ -70,7 +68,18 @@ const Profile = () => {
                         {story.createdAt}
                       </Moment>
                     </div>
-                    <p className="desc-text">{story.description}</p>
+                    <p className="desc-text">
+                      {ReactHtmlParser(story.description.substring(0, 100))}...{" "}
+                      <span
+                        className="readmore"
+                        style={{ color: "#2e86de", fontWeight: 600 }}
+                        onClick={() => {
+                          history.push(`/detail/${story.id}`);
+                        }}
+                      >
+                        Read more
+                      </span>
+                    </p>
                   </div>
                 </div>
                 {/* </Link> */}

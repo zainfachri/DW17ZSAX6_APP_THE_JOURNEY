@@ -8,7 +8,7 @@
   font-weight: bold;
 }
 .editor {
-  margin-top: 40px !important;
+  margin-top: 15px !important;
 }
 .ck-content {
   height: 200px !important;
@@ -21,4 +21,13 @@
 .post button {
   width: 100px;
   grid-column-end: none;
+}
+.drop-bookmark {
+  background-color: #de2a2a !important;
+  color: #fff !important;
+}
+.drop-bookmark:hover {
+  background-color: white !important;
+  color: #de2a2a !important;
+  cursor: pointer;
 }

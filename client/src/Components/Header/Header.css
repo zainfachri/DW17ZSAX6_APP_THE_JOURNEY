@@ -73,7 +73,7 @@ header {
 }
 .home-search button {
   font-size: 18px;
-  width: 150px;
+  width: 100px;
 }
 @media all and (max-width: 1366px) {
   .head {

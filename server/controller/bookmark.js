@@ -115,10 +115,27 @@ exports.deleteBookmark = async (req, res) => {
 
 exports.createBookmark = async (req, res) => {
   try {
+    const { journeyId, bmUserId } = req.body;
+
+    const checkBook = await Bookmark.findOne({
+      where: {
+        journeyId,
+        bmUserId,
+      },
+    });
+
+    if (checkBook) {
+      return res.status(400).send({
+        error: {
+          message: "Bookmark already existed",
+        },
+      });
+    }
+
     const addBookmark = await Bookmark.create(req.body);
 
     res.status(200).send({
-      message: "Transaction has been Created",
+      message: "Bookmark has been Created",
       data: addBookmark,
     });
   } catch (error) {

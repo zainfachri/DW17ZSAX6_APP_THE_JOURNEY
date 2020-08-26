@@ -102,7 +102,6 @@ exports.journeyUser = async (req, res) => {
 
 exports.createJourney = async (req, res) => {
   try {
-    journeyIm;
     const { journeyImg } = req.files;
     const imageJourneyName = journeyImg.name;
     await journeyImg.mv(`./uploads/${imageJourneyName}`);
