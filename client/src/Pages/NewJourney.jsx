@@ -102,7 +102,7 @@ const NewJourney = () => {
                 for="inputGroupFile01"
                 style={{ fontSize: 15 }}
               >
-                Choose Image Journey
+                Choose Thumbnail
               </label>
             </div>
           </div>
