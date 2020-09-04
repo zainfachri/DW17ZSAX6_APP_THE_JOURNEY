@@ -130,6 +130,11 @@ const NewJourney = () => {
                 //   console.log("Editor is ready to use!", editor);
               }}
               onChange={handleOnChange}
+              config={{
+                ckfinder: {
+                  uploadUrl: "http://localhost:5001/uploads",
+                },
+              }}
             />
           </div>
           <div className="post">
