@@ -6,4 +6,4 @@
 -di server jalankan nodemon index.js (install package nodemon dulu), lalu di client jalankan npm start, jangan lupa XAMPP di start
 -untuk login admin.. register terlebih dahulu trus ubah didatabase rolenya ke 1
 
-![](ssthejourney.jpg)
+![](ssthejourney.png)
